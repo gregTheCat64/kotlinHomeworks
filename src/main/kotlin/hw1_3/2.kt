@@ -16,8 +16,8 @@ fun main() {
     println(calculateFee(sumOfThisTransfer = 10_000, typeOfPay = "Visa", sumOfPreviousTransfers = 590_000)) //превысили лимит в 600_000
     println(calculateFee(sumOfThisTransfer = 151_000, typeOfPay = "Mir")) //превысили суточный лимит
     println(calculateFee(sumOfThisTransfer = 200, typeOfPay = "Mir")) //проходим, минимальная комиссия 35 рублей
-    println(calculateFee(sumOfThisTransfer = 151_000, typeOfPay = "Maestro", sumOfPreviousTransfers = 450_000)) //превысили все лимиты
-    println(calculateFee(sumOfThisTransfer = 50_000, typeOfPay = "Maestro")) //проходим, комиссия 3000+20 рублей
+    println(calculateFee(sumOfThisTransfer = 10_000, typeOfPay = "Maestro", sumOfPreviousTransfers = 66_000)) //проходим, ком. 600+20 руб.
+    println(calculateFee(sumOfThisTransfer = 50_000, typeOfPay = "Maestro")) //проходим, комиссия 0 рублей
 
 }
 
@@ -47,7 +47,7 @@ fun calculateFee(
 // проверяем допустимость перевода:
     if (checkLimits(typeOfPay, sumOfPreviousTransfers, sumOfThisTransfer)) {
        return when (typeOfPay) {
-            "Maestro", "Mastercard" -> if (sumOfPreviousTransfers < 75_000) return sumOfThisTransfer * 0.06 + 20 else 0.00
+            "Maestro", "Mastercard" -> if (sumOfPreviousTransfers+sumOfThisTransfer > 75_000) return sumOfThisTransfer * 0.06 + 20 else 0.00
             "Visa", "Mir" -> if (sumOfThisTransfer * 0.075 < 35) return 35.0 else 0.075 * sumOfThisTransfer
 
            else -> 0.00 //если вк - то комиссия 0
