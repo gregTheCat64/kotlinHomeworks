@@ -18,6 +18,8 @@ fun main() {
     println(calculateFee(sumOfThisTransfer = 200, typeOfPay = "Mir")) //проходим, минимальная комиссия 35 рублей
     println(calculateFee(sumOfThisTransfer = 10_000, typeOfPay = "Maestro", sumOfPreviousTransfers = 66_000)) //проходим, ком. 600+20 руб.
     println(calculateFee(sumOfThisTransfer = 50_000, typeOfPay = "Maestro")) //проходим, комиссия 0 рублей
+    println(calculateFee(sumOfThisTransfer = 50_000, typeOfPay = "Mastercard", sumOfPreviousTransfers = 450_000)) //проходим, комиссия 3020 рублей
+
 
 }
 
