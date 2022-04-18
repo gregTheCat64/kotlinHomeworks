@@ -13,7 +13,7 @@ fun main() {
     println(calculateFee(sumOfThisTransfer = 1000, typeOfPay = "VkPay", sumOfPreviousTransfers = 39000)) //превысили лимит за месяц
     println(calculateFee(sumOfThisTransfer = 16000, typeOfPay = "VkPay"))//превысили лимит развого платежа
     println(calculateFee(sumOfThisTransfer = 1000, typeOfPay = "Visa"))  //проходим, комиссия 75 рублей
-    println(calculateFee(sumOfThisTransfer = 10_000, typeOfPay = "Visa", sumOfPreviousTransfers = 590_000)) //превысили лимит в 600_000
+    println(calculateFee(sumOfThisTransfer = 11_000, typeOfPay = "Visa", sumOfPreviousTransfers = 590_000)) //превысили лимит в 600_000
     println(calculateFee(sumOfThisTransfer = 151_000, typeOfPay = "Mir")) //превысили суточный лимит
     println(calculateFee(sumOfThisTransfer = 200, typeOfPay = "Mir")) //проходим, минимальная комиссия 35 рублей
     println(calculateFee(sumOfThisTransfer = 10_000, typeOfPay = "Maestro", sumOfPreviousTransfers = 66_000)) //проходим, ком. 600+20 руб.
